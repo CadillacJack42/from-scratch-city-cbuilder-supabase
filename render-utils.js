@@ -8,12 +8,12 @@ export const render = (city) => {
     for (const town of cityNameEls) {
         town.textContent = city.name;
     }
-    console.log(city);
 
     waterEl.style.backgroundImage = `url('../assets/water-${city.water}.jpeg')`;
     skylineEl.style.backgroundImage = `url('../assets/skyline-${city.skyline}.jpeg')`;
     castleEl.style.backgroundImage = `url('../assets/castle-${city.castle}.jpeg')`;
 
+    slogansEl.textContent = '';
     for (const slogan of city.slogans) {
         const sloganP = document.createElement('h3');
         sloganP.textContent = slogan;

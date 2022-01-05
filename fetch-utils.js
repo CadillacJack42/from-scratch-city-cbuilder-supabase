@@ -1,3 +1,5 @@
+import { render } from './render-utils.js';
+
 const SUPABASE_URL = 'https://cmewyjgphfnmytfmmpjy.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MDAxOTY4MywiZXhwIjoxOTU1NTk1NjgzfQ.0WT-gqj-qvV0wYfg0QdblxbkS4J4rIq0wf8BI3R45yc';
 
@@ -43,7 +45,6 @@ export const getCity = async() => {
         .select()
         .match({ user_id: client.auth.user().id })
         .single();
-    // console.log(city);
     return checkError(city);
 };
 
@@ -57,8 +58,31 @@ export const createDefaultCity = async() => {
             castle: 1,
             slogans: ['The City of Sin']
         }]);
-    console.log('New City: ', newCity);
     return checkError(newCity);
+};
+
+export const updateImage = async(targetedElement, value) => {
+    await client    
+        .from('cities')
+        .update({ [targetedElement] : value })
+        .match({ user_id: client.auth.user().id });
+    render(await getCity());
+};
+
+export const updateSlogans = async(val) => {
+    await client    
+        .from('cities')
+        .update({ slogans : val })
+        .match({ user_id: client.auth.user().id });
+    render(await getCity());
+};
+
+export const updateName = async(val) => {
+    await client    
+        .from('cities')
+        .update({ name : val })
+        .match({ user_id: client.auth.user().id });
+    render(await getCity());
 };
 
 function checkError({ data, error }) {
