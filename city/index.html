@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/home.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="gutter-right logo">
+            <img src="../assets/big-logo.png" />
+        </div>
+    </header>    
+    <button id="logout">Logout</button>
+    <main>
+        <form id="new-name">
+            <h4>Change City Name Here</h4>
+            <input type="text" name="name" id="name-input">
+            <input type="submit"  id="name-btn">
+        </form>
+        <h1>Welcome to <span class="city-name"></span></h1>
+        <div id="images-container">
+            <div class="images">
+                <div class="city-features" id="skyline"></div>
+                <select name="" id="skyline-dropdown">
+                    <option value="1">Seattle</option>
+                    <option value="2">Portland</option>
+                    <option value="3">Las Vegas</option>
+                </select>
+            </div>
+            <div class="images">
+                <div class="city-features" id="water"></div>
+                <select name="" id="water-dropdown">
+                    <option value="1">Lake</option>
+                    <option value="2">River</option>
+                    <option value="3">Ocean</option>
+                </select>
+            </div>
+            <div class="images">
+                <div class="city-features" id="castle"></div>
+                <select name="" id="castle-dropdown">
+                    <option value="1">Apartment</option>
+                    <option value="2">Castle</option>
+                    <option value="3">House</option>
+                </select>
+            </div>
+            
+            
+            
+        </div>
+        <form id="new-slogan">
+            <h4>Enter New Slogan Here</h4>
+            <input type="text" name="slogan" id="slogan-input">
+            <input type="submit"  id="slogan-btn">
+        </form>
+        <h2>The existing slogans for <span class="city-name"></span> are:</h2>
+        <div id="slogans"></div>
+        
+    </main>
+    <footer>
+        <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
+    </footer>
+    <script type="module" src="./other-page.js"></script>
+</body>
+
+</html>
