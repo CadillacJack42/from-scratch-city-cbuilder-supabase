@@ -61,10 +61,10 @@ export const createDefaultCity = async() => {
     return checkError(newCity);
 };
 
-export const updateImage = async(targetedElement, value) => {
+export const updateImage = async(key, value) => {
     await client    
         .from('cities')
-        .update({ [targetedElement] : value })
+        .update({ [key] : value })
         .match({ user_id: client.auth.user().id });
     render(await getCity());
 };
